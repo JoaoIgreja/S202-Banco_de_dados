@@ -1,0 +1,68 @@
+[
+    {
+      "aula0": "Banco de dados",
+      "professor": {
+        "nome": "Renzo"
+      },
+      "assunto": "Bancos Relacionais",
+      "alunos": [
+        {
+          "nome": "Maria"
+        },
+        {
+          "nome": "Pedro"
+        },
+        {
+          "nome": "Ana"
+        },
+        {
+          "nome": "Joao"
+        }
+      ]
+    },
+    {
+      "aula1": "POO",
+      "professor": 
+      {
+        "nome": "Chris"        
+      },
+      "assunto": "Classes",
+      "alunos": [
+        {
+          "nome": "Luisa"
+        },
+        {
+          "nome": "Miguel"
+        },
+        {
+          "nome": "Camila"
+        },
+        {
+          "nome": "Lucas"
+        }
+      ]
+    },
+    {
+        "aula3": "Fisica",
+        "professor": 
+        {
+          "nome": "Kiko"        
+        },
+        "assunto": "Leis de newton",
+        "alunos": [
+          {
+            "nome": "Marcos"
+          },
+          {
+            "nome": "Luana"
+          },
+          {
+            "nome": "Eduardo"
+          },
+          {
+            "nome": "Luiz"
+          }
+        ]
+      }
+  ]
+  
