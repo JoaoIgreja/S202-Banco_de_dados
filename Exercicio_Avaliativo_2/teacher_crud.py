@@ -1,27 +1,38 @@
+from database import Database
+
+
 class TeacherCRUD:
-    def __init__(self, database):
-        self.database = database
+    def __init__(self, db):
+        self.db = db
 
     def create(self, name, ano_nasc, cpf):
-        query = "CREATE (:Teacher {name: $name, ano_nasc: $ano_nasc, cpf: $cpf})"
-        parameters = {"name": name, "ano_nasc": ano_nasc, "cpf": cpf}
-        self.database.execute_query(query, parameters)
+        query = f"""
+        CREATE (t:Teacher {{name: '{name}', ano_nasc: {ano_nasc}, cpf: '{cpf}'}})
+        RETURN t
+        """
+        return self.db.run(query)
 
     def read(self, name):
-        query = "MATCH (t:Teacher {name: $name}) RETURN t"
-        parameters = {"name": name}
-        result = self.database.execute_query(query, parameters)
-        if result:
-            return result[0]['t']
-        else:
-            return None
+        query = f"""
+        MATCH (t:Teacher {{name: '{name}'}})
+        RETURN t
+        """
+        return self.db.run(query)
 
     def delete(self, name):
-        query = "MATCH (t:Teacher {name: $name}) DELETE t"
-        parameters = {"name": name}
-        self.database.execute_query(query, parameters)
+        query = f"""
+        MATCH (t:Teacher {{name: '{name}'}})
+        DETACH DELETE t
+        """
+        return self.db.run(query)
 
-    def update(self, name, newCpf):
-        query = "MATCH (t:Teacher {name: $name}) SET t.cpf = $newCpf"
-        parameters = {"name": name, "newCpf": newCpf}
-        self.database.execute_query(query, parameters)
+    def update(self, name, new_cpf):
+        query = f"""
+        MATCH (t:Teacher {{name: '{name}'}})
+        SET t.cpf = '{new_cpf}'
+        RETURN t
+        """
+        return self.db.run(query)
+
+    def run(self):
+        pass
